@@ -2,7 +2,7 @@ Usage: \nmgemfile <SubCommand>\n\n
 Description: mgemfile is a CLI gemFile manager, add,remove gems to any enviroment and bundle your installation in one CLI.\n\n
 SubCommands: init,add,remove\n\n
 init: creating Gemfile in the current direcotry and sourced using rubygems
-add gem-name(s): Adding specified gem(s) to the Gemfile and run <bundle install>\nExample:- mgemfile add:rspec\n\n
-remove gem-name(s): Removing specified gem(s) from gemFile and run <bundle install>\nEcample:- mgemfile remove:rspec\n\n
-Note: You can specify multiple enviroments in the gem(s) installing proccess\nExample:- mgemfile development,production,test:cucumber,rspec\n\n
+add gem-name(s): Adding specified gem(s) to the Gemfile and run <bundle install>\nExample:- mgemfile add rspec capybara --development --test\n\n
+remove gem-name(s): Removing specified gem(s) from gemFile and run <bundle install>\nEcample:- mgemfile remove rspec capybara --development --test\n\n
+Note: You can specify multiple enviroments in the gem(s) installing proccess\nExample:- mgemfile add cucumber rspec --development --test --production\n\n
 More info: Github/wiki.com

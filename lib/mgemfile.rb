@@ -40,10 +40,6 @@ module Mgemfile
       end
     end
 
-
-
-
-
     private
     def initialize_Gemfile
       create_Gemfile

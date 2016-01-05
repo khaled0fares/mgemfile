@@ -1,19 +1,19 @@
 ## Installation
-
     $ gem install mgemfile
 
 ## Usage
 
 
 
+
 ### Commands: init,add, (to-do)remove
-###Creating Gemfile sourced by rubygems.org
+####Creating Gemfile sourced by rubygems.org
    $ mgemfile init
 
-   ###Adding gems(s) for all enviromnet and bundle install
+####Adding gems(s) for all enviromnet and bundle install
    $ mgemfile add gem-name 
 
-   ###Adding gems(s) for specified enviroment and bundle install
+####Adding gems(s) for specified enviroment and bundle install
    $ mgemfile add gem-name --development --test
 
 ## License

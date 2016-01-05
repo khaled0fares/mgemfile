@@ -70,7 +70,7 @@ module Mgemfile
     end
 
     def source_exists_in? line
-      true unless (/^[\w\s]*source\s*\"(https?):\/\/rubygems\.org\/?\s*\"/.match(line.to_s).nil?)
+      true unless (/^[\w\s]*source\s*(\"|\')(https?):\/\/rubygems\.org\/?\s*(\"|\')/.match(line.to_s).nil?)
     end
     def lines
       File.open("Gemfile").read

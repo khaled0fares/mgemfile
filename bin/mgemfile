@@ -15,9 +15,9 @@ module Mgemfile
       #gem_file_init.help
       puts data_help =  <<EOC
 Usage: \nmgemfile <Command>\n\n
-Description: mgemfile is a CLI gemFile manager, add,remove gems to any environment and bundle your installation in one CLI.\n\n
+Description: mgemfile is a CLI Gemfile manager, add,remove gems from any environment and "bundle install" in a single CLI.\n\n
 Commands: init,add, (to-do)remove\n\n
-init: creating Gemfile in the current direcotry and sourced using rubygems
+init: creating Gemfile in the current direcotry and sourced using rubygems\n\n
 add gem-name(s): Adding specified gem(s) to the Gemfile and run <bundle install>\nExample:- mgemfile add rspec --development --test\n\n
 remove gem-name(s): Removing specified gem(s) from gemFile and run <bundle install>\nExample:- mgemfile remove rspec --development --test\n\n
 Note: You can specify multiple environments in the gem(s) installing proccess\nExample:- mgemfile add rspec capybara --development --test\n\n

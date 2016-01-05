@@ -4,11 +4,12 @@
 ## Usage
 
 
-
-
 ### Commands: init,add, (to-do)remove
+
+
 ####Creating Gemfile sourced by rubygems.org
-   $ mgemfile init
+
+$ mgemfile init
 
 ####Adding gems(s) for all enviromnet and bundle install
    $ mgemfile add gem-name 

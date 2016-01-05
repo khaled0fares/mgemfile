@@ -1,5 +1,5 @@
 ##Description: 
-  mgemfile is a CLI gemFile manager, add,remove gems to any environment and "bundle install" in one CLI.
+  mgemfile is a CLI Gemfile manager, add,remove gems to any environment and "bundle install" in one CLI.
 ## Installation
     $ gem install mgemfile
 

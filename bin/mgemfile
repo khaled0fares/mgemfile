@@ -21,7 +21,7 @@ init: creating Gemfile in the current direcotry and sourced using rubygems
 add gem-name(s): Adding specified gem(s) to the Gemfile and run <bundle install>\nExample:- mgemfile add:rspec\n\n
 remove gem-name(s): Removing specified gem(s) from gemFile and run <bundle install>\nEcample:- mgemfile remove:rspec\n\n
 Note: You can specify multiple environments in the gem(s) installing proccess\nExample:- mgemfile add rspec capybara --development --test\n\n
-More info: Github/wiki.com
+More info: https://github.com/khaledmohammedfares/mgemfile
 EOC
     end
 

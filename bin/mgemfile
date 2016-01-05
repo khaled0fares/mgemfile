@@ -1,0 +1,48 @@
+#!/usr/bin/env ruby
+require_relative "../lib/mgemfile"
+require 'thor'
+require 'yaml'
+module Mgemfile
+
+  class Base < Thor
+    desc "init","intialize gemfile"
+    def init
+      gem_file_init
+    end
+
+    desc "help","Describe every command"
+    def help
+      #gem_file_init.help
+      puts data_help =  <<EOC
+Usage: \nmgemfile <SubCommand>\n\n
+Description: mgemfile is a CLI gemFile manager, add,remove gems to any enviroment and bundle your installation in one CLI.\n\n
+Commands: init,add, (to-do)remove\n\n
+init: creating Gemfile in the current direcotry and sourced using rubygems
+add gem-name(s): Adding specified gem(s) to the Gemfile and run <bundle install>\nExample:- mgemfile add:rspec\n\n
+remove gem-name(s): Removing specified gem(s) from gemFile and run <bundle install>\nEcample:- mgemfile remove:rspec\n\n
+Note: You can specify multiple enviroments in the gem(s) installing proccess\nExample:- mgemfile development,production,test:cucumber,rspec\n\n
+More info: Github/wiki.com
+EOC
+    end
+
+    desc "add","Adding new gem"
+    option :development
+    option :test
+    option :production
+    def add *gems
+      unless options.empty?
+        gem_file_init.add_grouped_gems gems,options
+      else
+        gem_file_init.add_gems gems
+      end
+    end
+
+    private
+    def gem_file_init
+      gemfile  = GemFileHandler.new
+    end
+
+  end
+
+end
+Mgemfile::Base.start ARGV

@@ -34,8 +34,8 @@ module Mgemfile
         option = option[0...-1]
         full_group  = ""
         gems.each {|gem| full_group << "\n  gem \"#{gem}\""}
-        File.open("Gemfile","a+") do |i|
-          i.write("\ngroup #{option} do\n#{full_group}\nend")
+        File.open("Gemfile","a+") do |gem_file|
+          gem_file.write("\ngroup #{option} do\n#{full_group}\nend")
         end
       end
     end

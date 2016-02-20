@@ -8,15 +8,6 @@ module Mgemfile
       initialize_Gemfile
     end
 
-    def help
-      path_to_module = %x[gem path mgemfile]
-      path_to_lib = /.+lib/.match(path_to_module)
-      yaml_help_path = "#{path_to_lib}/help.yaml"
-      data_help =  YAML.load_file(yaml_help_path)
-      data_help.each do |key,val|
-        puts "#{key} #{val}"
-      end
-    end
     def add_gems gems
       gem_file_iterator gems do |gems|
         gems.each do |gem|
@@ -41,6 +32,7 @@ module Mgemfile
     end
 
     private
+
     def initialize_Gemfile
       create_Gemfile
       add_source
@@ -50,6 +42,7 @@ module Mgemfile
       #system "touch 'Gemfile'"
       FileUtils.touch 'Gemfile' unless File.exist?("#{current_Gemfile_path}/Gemfile")
     end
+
     def add_source  site="https://rubygems.org/"
       gemHandler =  File.open(current_Gemfile_path,"a+")
       gemHandler.write("source \"#{site}\"\n") unless sourced?
@@ -68,6 +61,7 @@ module Mgemfile
     def source_exists_in? line
       true unless (/^[\w\s]*source\s*(\"|\')(https?):\/\/rubygems\.org\/?\s*(\"|\')/.match(line.to_s).nil?)
     end
+
     def lines
       File.open("Gemfile").read
     end
@@ -81,18 +75,27 @@ module Mgemfile
         end
         gems_to_install << gem  unless exist
       end
-        unless gems_to_install.count  == 0
+      unless gems_to_install.count  == 0
         yield(gems_to_install)
         system "bundle install"
       else
         puts "=====Gem(s) #{gems} already exist(s) in Gemfile====="
       end
     end
+
     #Will be refactoed to add_gems gems method.
+
     def add_gem(gem)
       File.open("Gemfile","a+") do |i|
         i.write("\ngem '#{gem}'")
       end
     end
+
+    def printing data_help
+      data_help.each do |key,val|
+        puts "#{key} #{val}"
+      end
+    end
+
   end
 end

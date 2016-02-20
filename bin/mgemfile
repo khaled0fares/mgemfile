@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 require_relative "../lib/mgemfile"
 require 'thor'
-require 'yaml'
 module Mgemfile
 
   class Base < Thor
+
     desc "init","intialize gemfile"
     def init
       gem_file_init
@@ -12,7 +12,6 @@ module Mgemfile
 
     desc "help","Describe every command"
     def help
-      #gem_file_init.help
       puts data_help =  <<EOC
 Usage: \nmgemfile <Command>\n\n
 Description: mgemfile is a CLI Gemfile manager, add,remove gems to any environment and "bundle install" in one CLI.\n\n
@@ -40,8 +39,6 @@ EOC
     def gem_file_init
       gemfile  = GemFileHandler.new
     end
-
   end
-
 end
 Mgemfile::Base.start ARGV
